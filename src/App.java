@@ -11,7 +11,7 @@ public class App {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		
+		/*
 		JTextField formDescrPath = new JTextField(25);
 		formDescrPath.setSize(50, 200);
 	//	formDescrPath.setColumns(5);
@@ -63,7 +63,9 @@ public class App {
 		mainFrame.setSize(500,500);
 		mainFrame.setContentPane(pan);
 		mainFrame.setVisible(true);
+		*/
 		
+		SimpleCalc sc = new SimpleCalc();
 		
 	}
 

@@ -6,7 +6,7 @@ public class Model {
 	
 	private Map<String,String> history = new TreeMap<>();
 	private String monitorData = new String();
-	private Model modelSingle = null;
+	private static Model modelSingle = null;
 	
 	private Model(){
 		

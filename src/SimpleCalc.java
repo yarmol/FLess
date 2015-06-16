@@ -1,4 +1,6 @@
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -20,8 +22,13 @@ public class SimpleCalc  {
 		
 		//defining buttons 
 		String simpleButtonOps = "1234567890./*-+";
-				
-		//declare 
+		ArrayList<String> s = new ArrayList<>();
+		String[] buttonOps;
+		Arrays.asList(simpleButtonOps.toCharArray()).forEach((ñ) -> buttonOps.add(c));	
+	 	
+		CalcBuilder cb = new CalcBuilder(buttonOps,buttonPanel);
+		mainFrame.setContentPane(buttonPanel);
+		mainFrame.setVisible(true);
 	
 	}
 	
