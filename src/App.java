@@ -17,6 +17,7 @@ public class App {
 	//	formDescrPath.setColumns(5);
 		
 		JFrame mainFrame = new JFrame();
+		
 		JPanel pan = new JPanel();
 		pan.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
