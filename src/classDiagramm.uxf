@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>50</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>_object: App_
+--
+*+ static void main (String[] args)*
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>180</y>
+      <w>280</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>_object: CalcDescriptor_
+--
+- buttonDescr : String[]
+- operationsDescr : Map&lt;String,String&gt;
+- monitorValue : String
+- calcType : ENUM::CalcTypes
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>180</y>
+      <w>210</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>_object: Model_
+--
+- modelInstance : Model
+- monitorValue : String
+- answerHistory : LinkedList 
+- enteredValue : String
+--
+- Model()
+*+ static Model getInstance()*
++ void setMonitorValue (String s)
++ String getMonitorValue()
++ void historyAdd(String s)
++ String historyLast()
++ String[] historyAll()
++ void setEnteredValue()
++ String getEnteredValue()
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>510</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_object: Builder_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>510</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_object: Engine_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>610</x>
+      <y>40</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_ENUM: CalcTypes_
+--
+SIMPLE
+GRAPHIC
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>370</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_object: UI_
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>90</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;90.0</additional_attributes>
+  </element>
+</diagram>
