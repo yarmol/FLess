@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.3">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>50</y>
-      <w>230</w>
-      <h>50</h>
+      <x>632</x>
+      <y>32</y>
+      <w>200</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>_object: App_
 --
@@ -18,27 +18,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>310</x>
-      <y>180</y>
-      <w>280</w>
-      <h>160</h>
-    </coordinates>
-    <panel_attributes>_object: CalcDescriptor_
---
-- buttonDescr : String[]
-- operationsDescr : Map&lt;String,String&gt;
-- monitorValue : String
-- calcType : ENUM::CalcTypes
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>30</x>
-      <y>180</y>
-      <w>210</w>
-      <h>310</h>
+      <x>192</x>
+      <y>328</y>
+      <w>200</w>
+      <h>184</h>
     </coordinates>
     <panel_attributes>_object: Model_
 --
@@ -64,67 +47,392 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>510</y>
-      <w>210</w>
-      <h>80</h>
+      <x>632</x>
+      <y>272</y>
+      <w>224</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>_object: Builder_
+    <panel_attributes>_object: Painter_
 --
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
-      <y>510</y>
-      <w>210</w>
-      <h>80</h>
+      <x>192</x>
+      <y>80</y>
+      <w>336</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>/_abstract class: Calc_/
+--
+- Set&lt;Digits&gt; dgs;
+- Set&lt;Operations&gt; ops;
+- Set&lt;Monitors&gt; mons;
+- Set&lt;Service&gt; srv;
+- CalcTypeEnum calcType;
+- GUI currentGUI;
+- Model currentModel;
+--
+- void setDigits(Set&lt;Digits&gt; dgs);
+- void setOperations(Set&lt;Operations&gt; ops);
+- void setMonitors(Set&lt;Monitors&gt; mons);
++ Set&lt;Digits&gt; getDigits();
++ Set&lt;Operations&gt; getOperations();
++ Set&lt;Monitors&gt; getMonitors();
++ CalcTypeEnum getCalcType();
++ void show();
++ Calc(CalcTypeEnum calcType);
++ Model getModel();
++ void deploy();//not implemented//
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>0</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>_ENUM: Operations_
+--
+PLUS,	
+MINUS,
+MULTIPLY,
+DIVIDE,
+CUBE,
+QUADRANT,
+ROOT,
+POWER,
+LOG,
+LOG_BASE,
+ONE_DIVIDE_ON
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>80</y>
+      <w>224</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>_object: GUI_
+--
+- JFrame : mainFrame
+- JPanel : digitPanel
+- JPanel : operationPanel
+- JPanel : servicePanel
+- JPanel : monitorPanel
+- JPanel : graphicPanel
+- JTextEdit : monitorValue
+- JTextEdit : answerValue
+
+--
++ GUI (Calc calcEntity);
++ void Draw(mainFrame, this);
++ show();
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>568</y>
+      <w>224</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>_object: Engine_
+
 --
+void calc();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>152</y>
+      <w>168</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>_ENUM: DIGITS_
+--
+_1,_2,_3,_4,_5,
+_6,_7,_8,_9,_0
+
+
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>610</x>
-      <y>40</y>
-      <w>210</w>
-      <h>80</h>
+      <x>16</x>
+      <y>208</y>
+      <w>168</w>
+      <h>48</h>
     </coordinates>
-    <panel_attributes>_ENUM: CalcTypes_
+    <panel_attributes>_ENUM: SERVICE
 --
-SIMPLE
-GRAPHIC
+CE,M_PLUS,M_MINUS,MC,
+SIGN,PERCENT,COMMA,ENTER
+
+
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>370</y>
-      <w>210</w>
-      <h>80</h>
+      <x>192</x>
+      <y>0</y>
+      <w>336</w>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>_object: UI_
+    <panel_attributes>_static class: Aliases_
 --
+- static Map&lt;String,Operations&gt; : operations
+- static Map&lt;String,Digits&gt;     : digits
+- static Map&lt;String,Service&gt;    : srv
+--
+/static init Aliases()/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>408</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>_ENUM: POINTS_ENUM
+--
+GUI,
+COMMAND_LINE,
+MODEL,
+ENGINE
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>264</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_ENUM: MONITORS
+--
+EDITABLE_BOX,
+GRAPHIC,
+ANSWER_BOX
+
+
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>250</x>
-      <y>90</y>
-      <w>90</w>
-      <h>110</h>
+      <x>520</x>
+      <y>160</y>
+      <w>128</w>
+      <h>24</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-m2=0..n</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;90.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>296</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>384</x>
+      <y>104</y>
+      <w>128</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Real calc will extend current
+abstract class, and implement /deploy/ method. 
+This method will describe how to draw GUI of calc. 
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>240</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>392</y>
+      <w>224</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>*_static class: Informer_*
+--
+- Queque eventQueue;
+--
++ Event getEvent();
++ void addEvent(Event e);
++ Queque getEventQueue();
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>320</y>
+      <w>144</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=m
+send messages to &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>400</y>
+      <w>264</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=m
+reflect events to &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>328</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>_ENUM: CALC_TYPE_ENUM
+--
+COMMAND_LINE,
+SIMLE,
+GRAPHIC
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>424</y>
+      <w>264</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+send events to engine &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>488</y>
+      <w>128</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=m
+send events to &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>32</y>
+      <w>128</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>392</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>_object: Message_
+Points_Enum sender;
+Points_Enum reciever;
+Event  e;
+--
+Message(sender,reciever,e);</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>824</x>
+      <y>320</y>
+      <w>96</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;90.0</additional_attributes>
   </element>
 </diagram>
