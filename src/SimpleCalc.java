@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,11 +17,10 @@ public class SimpleCalc  {
 		JPanel mainPanel 		= new JPanel();
 		JPanel buttonPanel 	 	= new JPanel();
 		JPanel monitorPanel 	 = new JPanel();
-		Model model 	 = Model.getModel();
+		//Model model 	 = Model.getModel();
 		
 		//set layout
-		GridLayout buttonGrid = new GridLayout(4,4);
-		buttonPanel.setLayout(buttonGrid);
+		buttonPanel.setLayout(new GridLayout(4,4));
 		
 			
 		//monitor element
@@ -30,10 +30,10 @@ public class SimpleCalc  {
 		
 		monitorPanel.add(monitor);
 		
-		BorderLayout mainLayout = new BorderLayout();
-		mainLayout.addLayoutComponent(monitorPanel, BorderLayout.NORTH);
-		mainLayout.addLayoutComponent(buttonPanel, BorderLayout.CENTER);
-		mainPanel.setLayout(mainLayout);
+		//BorderLayout mainBorderLayout =;
+		//mainLayout.addLayoutComponent(monitorPanel, BorderLayout.NORTH);
+		//mainLayout.addLayoutComponent(buttonPanel, BorderLayout.CENTER);
+		mainPanel.setLayout(new BorderLayout());
 	
 		//defining buttons 
 		String simpleButtonOps = "1234567890./*-+=";
@@ -47,7 +47,13 @@ public class SimpleCalc  {
 		
 	 	
 		CalcBuilder cb = new CalcBuilder(buttonOps,buttonPanel);
+		mainPanel.setSize(500, 500);
+		mainPanel.add(monitorPanel, BorderLayout.NORTH);
+		mainPanel.add(buttonPanel, BorderLayout.CENTER);
+		
 		mainFrame.setContentPane(mainPanel);
+		mainFrame.setSize(500, 500);
+		//mainFrame.setLayout(new FlowLayout());
 		mainFrame.setVisible(true);
 	
 	}

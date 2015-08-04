@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>32</y>
+      <x>616</x>
+      <y>8</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -18,16 +18,16 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>328</y>
+      <x>176</x>
+      <y>336</y>
       <w>200</w>
-      <h>184</h>
+      <h>224</h>
     </coordinates>
     <panel_attributes>_object: Model_
 --
 - modelInstance : Model
 - monitorValue : String
-- answerHistory : LinkedList 
+- monitorHistory : LinkedList 
 - enteredValue : String
 --
 - Model()
@@ -41,19 +41,6 @@
 + String getEnteredValue()
 
 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>632</x>
-      <y>272</y>
-      <w>224</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>_object: Painter_
---
 
 </panel_attributes>
     <additional_attributes/>
@@ -61,14 +48,31 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>80</y>
+      <x>616</x>
+      <y>280</y>
+      <w>224</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_object: Painter_
+--
+*action events*
+*keyboard events*
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>88</y>
       <w>336</w>
       <h>224</h>
     </coordinates>
     <panel_attributes>/_abstract class: Calc_/
 --
-- Set&lt;Digits&gt; dgs;
+- Set&lt;String&gt; dgs;
 - Set&lt;Operations&gt; ops;
 - Set&lt;Monitors&gt; mons;
 - Set&lt;Service&gt; srv;
@@ -93,8 +97,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>0</y>
+      <x>0</x>
+      <y>8</y>
       <w>168</w>
       <h>144</h>
     </coordinates>
@@ -119,10 +123,10 @@ ONE_DIVIDE_ON
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>80</y>
+      <x>616</x>
+      <y>56</y>
       <w>224</w>
-      <h>168</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>_object: GUI_
 --
@@ -139,6 +143,9 @@ ONE_DIVIDE_ON
 + GUI (Calc calcEntity);
 + void Draw(mainFrame, this);
 + show();
++ showMonitorValue(String s);
++ showAnswerValue(String s);
++ showGraphic(Object o);
 
 
 
@@ -150,40 +157,24 @@ ONE_DIVIDE_ON
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>568</y>
-      <w>224</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>_object: Engine_
-
---
-void calc();</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>16</x>
-      <y>152</y>
-      <w>168</w>
+      <x>496</x>
+      <y>416</y>
+      <w>208</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>_ENUM: DIGITS_
+    <panel_attributes>_object: Sender_
 --
-_1,_2,_3,_4,_5,
-_6,_7,_8,_9,_0
-
-
-
-</panel_attributes>
+- Message message;
+--
+Sender(Message m)
+void send();</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>208</y>
+      <x>0</x>
+      <y>216</y>
       <w>168</w>
       <h>48</h>
     </coordinates>
@@ -200,15 +191,15 @@ SIGN,PERCENT,COMMA,ENTER
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>192</x>
-      <y>0</y>
+      <x>176</x>
+      <y>8</y>
       <w>336</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>_static class: Aliases_
 --
 - static Map&lt;String,Operations&gt; : operations
-- static Map&lt;String,Digits&gt;     : digits
+- static Map&lt;String,String&gt;     : digits
 - static Map&lt;String,Service&gt;    : srv
 --
 /static init Aliases()/
@@ -218,8 +209,8 @@ SIGN,PERCENT,COMMA,ENTER
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>408</y>
+      <x>0</x>
+      <y>416</y>
       <w>168</w>
       <h>64</h>
     </coordinates>
@@ -239,8 +230,8 @@ ENGINE
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>264</y>
+      <x>0</x>
+      <y>272</y>
       <w>168</w>
       <h>56</h>
     </coordinates>
@@ -258,8 +249,8 @@ ANSWER_BOX
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>160</y>
+      <x>504</x>
+      <y>168</y>
       <w>128</w>
       <h>24</h>
     </coordinates>
@@ -269,19 +260,19 @@ ANSWER_BOX
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>296</y>
+      <x>248</x>
+      <y>304</y>
       <w>24</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>384</x>
-      <y>104</y>
+      <x>368</x>
+      <y>112</y>
       <w>128</w>
       <h>64</h>
     </coordinates>
@@ -294,66 +285,41 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>240</y>
+      <x>736</x>
+      <y>248</y>
       <w>24</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>392</y>
+      <x>744</x>
+      <y>672</y>
       <w>224</w>
-      <h>104</h>
+      <h>144</h>
     </coordinates>
-    <panel_attributes>*_static class: Informer_*
+    <panel_attributes>_class: Informer_
 --
-- Queque eventQueue;
+- Queque&lt;Message&gt; guiEventQueue;
+- Queque&lt;Message&gt; engineEventQueue;
 --
-+ Event getEvent();
-+ void addEvent(Event e);
-+ Queque getEventQueue();
+*+ static Event  getMessage(Points from);*
+*+ static void   addMessage(Message m,Points  dst);*
+*+ static Queque getGUIEventQueue();*
+*+ static Queque getEngineEventQueue();*
+*+ static void sendMessage();*
 
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>688</x>
-      <y>320</y>
-      <w>144</w>
-      <h>88</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=m
-send messages to &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>384</x>
-      <y>400</y>
-      <w>264</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=m
-reflect events to &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>328</y>
+      <x>0</x>
+      <y>336</y>
       <w>168</w>
       <h>64</h>
     </coordinates>
@@ -372,51 +338,24 @@ GRAPHIC
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>424</y>
-      <w>264</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=1
-send events to engine &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>688</x>
-      <y>488</y>
+      <x>504</x>
+      <y>8</y>
       <w>128</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=m
-send events to &gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>520</x>
-      <y>32</y>
-      <w>128</w>
-      <h>96</h>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>140.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>896</x>
-      <y>392</y>
+      <x>928</x>
+      <y>248</y>
       <w>224</w>
-      <h>64</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>_object: Message_
+--
 Points_Enum sender;
 Points_Enum reciever;
 Event  e;
@@ -427,12 +366,125 @@ Message(sender,reciever,e);</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>824</x>
-      <y>320</y>
-      <w>96</w>
+      <x>832</x>
+      <y>312</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>448</y>
+      <w>208</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>_object: Engine_
+--
+- Queque String;
+--
++ void add(ENUM.Service srv);
++ void add(ENUM.Operations oper);
++ void add(String digits);
++ String getResult();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>488</y>
+      <w>208</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>_object: Reciever_
+--
+- Message message;
+--
+Reciever(Sender s);
+Message recieve();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>344</y>
+      <w>48</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;90.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>456</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>488</y>
+      <w>144</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>432</y>
+      <w>144</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>488</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>448</y>
+      <w>120</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>344</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
 </diagram>
